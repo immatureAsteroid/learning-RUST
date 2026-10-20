@@ -1,0 +1,23 @@
+
+enum Shape {
+    Circle(f64),       // for radius
+    Rectangle(f64, f64), // for length and width
+}
+
+fn calculate_area(para: Shape) -> f64 {
+    let area = match para { // direct implicit bhi return kar sakte hain
+        Shape::Rectangle(a, b) => a*b,
+        Shape::Circle(r) => 3.14 * r * r,
+    };
+
+    return area; // direct area bhi rust me work karega without return & semicolon 
+}
+
+fn main() {
+    let rec1 = Shape::Rectangle(3.0, 4.0);
+    println!("{}", calculate_area(rec1));
+
+    let circle1 = Shape::Circle(3.0);
+    println!("{}", calculate_area(circle1));
+}
+
